@@ -3,6 +3,10 @@
 	import { page } from '$app/state';
 	import { repositoryName } from '$lib/prismicio';
 
+	import '../app.css';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+
 	let { children } = $props();
 </script>
 
@@ -19,7 +23,11 @@
 		<meta name="twitter:card" content="summary_large_image" />
 	{/if}
 </svelte:head>
+
+<Header />
 <main>
 	{@render children()}
 </main>
+<Footer settings={page.data.settings} />
+
 <PrismicPreview {repositoryName} />
